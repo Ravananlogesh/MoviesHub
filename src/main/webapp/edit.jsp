@@ -25,6 +25,8 @@
  <br>
  MovieLang: <input type="text" name="mlang" value="<%=m.getMlang()%>">
  <br>
+ Movie Youtube URL: <input type="text" name="url" value="<%=m.getUrl()%>">
+ <br>
  MovieImg: <input type="file" name="mimage">
  <br>
  <input type="submit">

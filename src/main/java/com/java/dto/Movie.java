@@ -2,6 +2,7 @@ package com.java.dto;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 public class Movie 
 {
@@ -11,7 +12,15 @@ public class Movie
 	private double mprice;
 	private String mgenre;
 	private String mlang;
+	private String url;
 	private byte[] mimage;
+	
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	public Movie() {
 		
 	}
@@ -21,6 +30,7 @@ public class Movie
 		this.mprice =rt.getDouble(3);
 		this.mgenre = rt.getString(4);
 		this.mlang = rt.getString(5);
+		this.url=rt.getString(6);
 	}
 	public int getMid() {
 		return mid;
@@ -61,7 +71,8 @@ public class Movie
 	}
 	@Override
 	public String toString() {
-		return "Moviedto [mid=" + mid + ", mname=" + mname + ", mprice=" + mprice + ", mgenre="
-				+ mgenre + ", mlang=" + mlang + ", mimage=" + mimage + "]";
+		return "Movie [mid=" + mid + ", mname=" + mname + ", mprice=" + mprice + ", mgenre=" + mgenre + ", mlang="
+				+ mlang + ", mimage=" + Arrays.toString(mimage) + ", url=" + url + "]";
 	}
+	
 }

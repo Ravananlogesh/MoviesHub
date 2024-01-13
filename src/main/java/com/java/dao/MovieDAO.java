@@ -29,7 +29,7 @@ public class MovieDAO {
 		while (rs.next()) {
 			m=new Movie(rs);
 
-			Blob b = rs.getBlob(6);
+			Blob b = rs.getBlob(7);
 			byte[] img = b.getBytes(1, (int) b.length());
 			m.setMimage(img);
 			movie.add(m);
@@ -55,7 +55,8 @@ public class MovieDAO {
                     m.setMprice(rs.getDouble(3));
                     m.setMgenre(rs.getString(4));
                     m.setMlang(rs.getString(5));
-                    Blob imageBlob = rs.getBlob(6);
+                    m.setUrl(rs.getString(6));
+                    Blob imageBlob = rs.getBlob(7);
                     if (imageBlob != null) {
                         byte[] img = imageBlob.getBytes(1, (int) imageBlob.length());
                         m.setMimage(img);
@@ -79,14 +80,15 @@ public class MovieDAO {
 	public int savamovies(Movie movie) throws ClassNotFoundException, SQLException {
 		Connection conn = getConnection();
 
-		PreparedStatement pt = conn.prepareStatement("insert into movie values(?,?,?,?,?,?)");
+		PreparedStatement pt = conn.prepareStatement("insert into movie values(?,?,?,?,?,?,?)");
 		pt.setInt(1, movie.getMid());
 		pt.setString(2, movie.getMname());
 		pt.setDouble(3, movie.getMprice());
 		pt.setString(4, movie.getMgenre());
 		pt.setString(5, movie.getMlang());
+		pt.setString(6, movie.getUrl());
 		Blob imageblob = new SerialBlob(movie.getMimage());
-		pt.setBlob(6, imageblob);
+		pt.setBlob(7, imageblob);
 		return pt.executeUpdate();
 
 	}
@@ -103,14 +105,15 @@ public class MovieDAO {
 	public int updateMovie(Movie movie) throws ClassNotFoundException, SQLException {
 	    Connection conn = getConnection();
 
-	    try (PreparedStatement pt = conn.prepareStatement("update movie set mname=?, mprice=?, mgenre=?, mlanguage=?, mimage=? where mid=?")) {
+	    try (PreparedStatement pt = conn.prepareStatement("update movie set mname=?, mprice=?, mgenre=?, mlanguage=?,url=?, mimage=? where mid=?")) {
 	        pt.setString(1, movie.getMname());
 	        pt.setDouble(2, movie.getMprice());
 	        pt.setString(3, movie.getMgenre());
 	        pt.setString(4, movie.getMlang());
+	        pt.setString(5, movie.getUrl());
 	        Blob imageBlob = new SerialBlob(movie.getMimage());
-	        pt.setBlob(5, imageBlob);
-	        pt.setInt(6, movie.getMid());
+	        pt.setBlob(6, imageBlob);
+	        pt.setInt(7, movie.getMid());
 
 	        return pt.executeUpdate();
 	    }

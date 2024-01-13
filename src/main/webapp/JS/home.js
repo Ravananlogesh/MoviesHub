@@ -9,19 +9,22 @@
     if (scroll) {
         scroll.style.backgroundImage = 'url(' + imageUrl + ')';
     }
-    
-		else{
-			scroll.style.backgroundImage = 'url("images/container.webp")';
-		}
-	
     }
+    
+   /* function defaultBackground(defaultImage){
+		var scroll=document.getElementById('scroll-container');
+		if(scroll){
+			scroll.style.backgroundImage ='url("images/container.webp")';
+		}
+	}*/
+    
       function playVideo(frameId, overlayId, videoUrl) {
         var frame = document.getElementById(frameId);
         var overlay = document.getElementById(overlayId);
-
+        var autoplay='?autoplay=1';
         if (frame && overlay) {
             // Set the source of the iframe in the overlay
-            frame.src = videoUrl;
+            frame.src = videoUrl+autoplay;
 
             // Show the overlay
             overlay.style.display = 'block';

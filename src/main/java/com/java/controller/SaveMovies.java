@@ -31,6 +31,7 @@ public class SaveMovies extends HttpServlet {
 			double mprice = Double.parseDouble(req.getParameter("mprice"));
 			String mgenre = req.getParameter("mgenre");
 			String mlang = req.getParameter("mlang");
+			String url=req.getParameter("url");
 			Part mimage = req.getPart("mimage");
 
 			Movie movie = new Movie();
@@ -39,6 +40,7 @@ public class SaveMovies extends HttpServlet {
 			movie.setMprice(mprice);
 			movie.setMgenre(mgenre);
 			movie.setMlang(mlang);
+			movie.setUrl(url);
 			movie.setMimage(mimage.getInputStream().readAllBytes());
 
 			
