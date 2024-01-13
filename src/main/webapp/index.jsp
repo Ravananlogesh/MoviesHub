@@ -1,14 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
-
-<style>
-
-</style>
+<head>
+<meta charset="UTF-8">
+<title>MovieHub</title>
+<link rel="shortcut icon" href="images/logo.png">
+<script src="JS/home.js"></script>
+ 
+</head>
 <body>
 <h2>Hello!!</h2>
 
-<a href="user.jsp">USER</a>
+<a id="link1" href="user.jsp">USER</a>
 <br>
 <br>
-<a href="admin.jsp">ADMIN</a>
+<a id="link2" href="admin.jsp">ADMIN</a>
 </body>
 </html>

@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MovieHub</title>
+<link rel="shortcut icon" href="images/logo.png">
 <link rel="stylesheet" href="CSS/login.css">
 <script src="https://kit.fontawesome.com/4080ed022e.js" crossorigin="anonymous"></script>
 </head>

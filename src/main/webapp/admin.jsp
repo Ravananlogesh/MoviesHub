@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MovieHub</title>
+<link rel="shortcut icon" href="images/logo.png">
 
    <style type="text/css">
    #log{
