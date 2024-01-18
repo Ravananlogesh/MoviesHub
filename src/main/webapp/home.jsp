@@ -18,41 +18,35 @@ body {
 	margin: 0px;
 }
 
-#moviestyle {
-	border: 1px solid black;
-	border-collapse: collapse;
-	text-align: center;
-}
 
-.colborder {
-	border: 1px solid black;
-}
+
 </style>
 </head>
 <body>
 
 	<div id="scroll-container">
-	
+
 		<%
-			MovieDAO dao = new MovieDAO();
-			List<Movie> movie = dao.getAllMovie();
-			int limit=20;
-			if (movie != null) {
-					for(int i=0;i<movie.size();i++){
-						String base64image = new String(Base64.getEncoder().encode(movie.get(i).getMimage()));
-			%>	
+		MovieDAO dao = new MovieDAO();
+		List<Movie> movie = dao.getAllMovie();
+		int limit = 20;
+		if (movie != null) {
+			for (int i = 0; i < movie.size(); i++) {
+				String base64image = new String(Base64.getEncoder().encode(movie.get(i).getMimage()));
+		%>
 		<div class="scroll-movie"
-		onmouseover="changeBackground('data:image/jpeg;base64,<%=base64image%>')"
-		onclick="playVideo('frame', 'overlay', '<%=movie.get(i).getUrl()%>')">
-		<a>
-		<img alt="" class="movie" src="data:image/jpeg;base64,<%=base64image%>">
-		</a>
-		<img class="playButton" alt="" height="40px" width="40px" src="images/play.png"></div>
-		
-		<%		
-			}
-			}
-			%>
+			onmouseover="changeBackground('data:image/jpeg;base64,<%=base64image%>')"
+			onclick="playVideo('frame', 'overlay', '<%=movie.get(i).getUrl()%>')">
+			<a> <img alt="" class="movie"
+				src="data:image/jpeg;base64,<%=base64image%>">
+			</a> <img class="playButton" alt="" height="40px" width="40px"
+				src="images/play.png">
+		</div>
+
+		<%
+		}
+		}
+		%>
 
 		<div id="overlay">
 			<div class="closeBtn" onclick="closeVideo('frame', 'overlay')">x</div>
@@ -60,56 +54,70 @@ body {
 				<iframe id="frame" class="videoFrame" src=""
 					title="YouTube video player"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					frameborder="0"  autoplay allowfullscreen></iframe>
+					frameborder="0" autoplay allowfullscreen></iframe>
 			</div>
 		</div>
 
 	</div>
 
-	<table id="moviestyle">
-		<tbody>
+	<header id="header">
+		<div id="add-container">
+			<a id="add-movie" href="addmovie.jsp"> <img id="add-link-image"
+				src="images/add.png" height="100px" width="100px">
+			</a>
+		</div>
 
-			<tr>
-				<th class="colborder">Movie Id</th>
-				<th class="colborder">Movie Name</th>
-				<th class="colborder">Movie Price</th>
-				<th class="colborder">Movie Genre</th>
-				<th class="colborder">Movie Language</th>
-				<th class="colborder">Movie Image</th>
-				<th class="colborder">Delete</th>
-				<th class="colborder">Edit</th>
-			</tr>
-			<%
-			if (movie != null) {
-				for (Movie m : movie) {
-			%>
-			<tr>
-				<td class="colborder"><%=m.getMid()%></td>
-				<td class="colborder"><%=m.getMname()%></td>
-				<td class="colborder"><%=m.getMprice()%></td>
-				<td class="colborder"><%=m.getMgenre()%></td>
-				<td class="colborder"><%=m.getMlang()%></td>
-				<%
-				 String base64image = new String(Base64.getEncoder().encode(m.getMimage()));
-				%>
-				<td class="colborder"><img
-					src="data:image/jpeg;base64,<%=base64image%>" height="200px"
-					width="200px"></td>
+		<%
+		if (movie != null) {
+			for (int i = 0; i < movie.size(); i++) {
+				String base64image = new String(Base64.getEncoder().encode(movie.get(i).getMimage()));
+		%>
 
-				<td class="colborder"><a href="deletemovie?id=<%=m.getMid()%>">Delete
-				</a></td>
-				<td class="colborder"><a href="editmovie?id=<%=m.getMid()%>">Edit
-						movie </a></td>
-			</tr>
-			<%
-			}
-			}
-			%>
-		</tbody>
-	</table>
+		<div id="head-container">
+
+			<div id="head-img"
+				onclick="playVideo('frame', 'overlay', '<%=movie.get(i).getUrl()%>')">
+				<img id="home-img" src="data:image/jpeg;base64,<%=base64image%>">
+				<img class="play" height="40px" width="40px" src="images/play.png">
+			</div>
+
+			<div id="head-content">
+				<h4 id="movie-name"><%=movie.get(i).getMname()%></h4>
+				<table style="margin-left: 20px;">
+
+					<tr>
+						<td>Price</td>
+						<td>: <%=movie.get(i).getMprice()%></td>
+					</tr>
+					<tr>
+						<td>Language</td>
+						<td>: <%=movie.get(i).getMlang()%></td>
+					</tr>
+					<tr>
+						<td>Genre</td>
+						<td>: <%=movie.get(i).getMgenre()%>
+						</td>
+					</tr>
+					<tr>
+						<td><a class="colborder"
+							href="deletemovie?id=<%=movie.get(i).getMid()%>">Delete </a></td>
+						<td><a  class="colborder" href="editmovie?id=<%=movie.get(i).getMid()%>">Edit
+								movie </a></td>
+					</tr>
+
+				</table>
+			</div>
+		</div>
+		<%
+		}
+		}
+		%>
 
 
-	<a id="add-movie" href="addmovie.jsp"> ADD_MOVIE </a>
+
+	</header>
+
+	<br>
 
 
 </body>

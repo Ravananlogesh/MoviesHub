@@ -35,7 +35,7 @@ protected void service(HttpServletRequest req, HttpServletResponse resp) throws 
 				String mlang = req.getParameter("mlang");
 				String url   =req.getParameter("url");
 				Part mimage = req.getPart("mimage");
-
+                
 				Movie movie = new Movie();
 				movie.setMid(id);
 				movie.setMname(mname);

@@ -39,10 +39,6 @@ public class MovieDAO {
 
 	}
 
-	
-
-	
-
 	public Movie findId(int id) throws ClassNotFoundException, SQLException {
         try (Connection conn = getConnection();
              PreparedStatement pt = conn.prepareStatement("select * from movie where mid=?")) {
@@ -61,6 +57,7 @@ public class MovieDAO {
                         byte[] img = imageBlob.getBytes(1, (int) imageBlob.length());
                         m.setMimage(img);
                     }
+                
                     return m;
                 }
             }
@@ -104,15 +101,24 @@ public class MovieDAO {
 	}
 	public int updateMovie(Movie movie) throws ClassNotFoundException, SQLException {
 	    Connection conn = getConnection();
-
+            Movie m=findId(movie.getMid());
 	    try (PreparedStatement pt = conn.prepareStatement("update movie set mname=?, mprice=?, mgenre=?, mlanguage=?,url=?, mimage=? where mid=?")) {
 	        pt.setString(1, movie.getMname());
 	        pt.setDouble(2, movie.getMprice());
 	        pt.setString(3, movie.getMgenre());
 	        pt.setString(4, movie.getMlang());
 	        pt.setString(5, movie.getUrl());
+	     
 	        Blob imageBlob = new SerialBlob(movie.getMimage());
-	        pt.setBlob(6, imageBlob);
+	        if (imageBlob.length() > 1) {
+                pt.setBlob(6, imageBlob);
+            }
+	        else {
+	        	Blob image= new SerialBlob(m.getMimage());
+	        	pt.setBlob(6, image);
+	        }
+	        
+	       
 	        pt.setInt(7, movie.getMid());
 
 	        return pt.executeUpdate();

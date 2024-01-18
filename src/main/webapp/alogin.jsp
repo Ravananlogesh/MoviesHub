@@ -13,7 +13,7 @@
  
          <div id="main_content">
         <div id="container" style="font-family: sans-serif;">
-            <h1 id="heading">Login</h1>
+        <h1 id="heading">Login</h1>
             <form action="adminlogin" method="post">
                 <label class="content" for="user">Admin Email</label>
                 <i class="fa-solid fa-user "></i>

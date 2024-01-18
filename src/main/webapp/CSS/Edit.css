@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+body {
+	margin:0px;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#main-container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+#container1{
+	height: 500px;
+	width: 50%;
+	
+}
+#container2{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	height: 500px;
+	width: 50%;
+}
+#image{
+	height:500px;
+	width:600px;
+}
+.editLabel{
+	margin-left: 40px;
+	margin-top: 10px;
+	font-size: 20px;
+	display: block;
+}
+.editInput{
+	margin-left: 40px;
+	width: 300px;
+	padding: 10px;
+	border-radius: 10px;
+    
+	border: 1px solid rgb(128, 64, 64);
+	
+}
+.editInput[type=text]{
+	color: seagreen;
+}	
+.editInput[type=number]{
+	color: blue;
+}
+.editInput:focus{
+	transform: scale(1.05);
+	font-weight: bold;
+}
+.editInput::placeholder{
+	color: black;
+}
+
+#submit{
+	border: none;
+	background: hotpink;
+	padding: 12px;
+	cursor: pointer;
+	border-radius: 20px;
+	margin-left: 40%;
+	text-align: center;
+}
+#submit:hover{
+	background: greenyellow;
+}
+#movieFile{
+    display: none;
+}
+#label-container{
+position: relative;
+}
+#fileInput{
+	border: 2px solid #3498db;
+	color: rgb(128, 64, 64);
+	background-color: white;
+	margin-top: 20px;
+	padding: 10px;
+	margin-left: 40px;
+	cursor: pointer;
+	display: inline-block;
+}
+#fileInput:hover{
+	background-color: lightblue;
+}
+#file-name{
+	margin-left: 10px;
+    color: #333;
+}
