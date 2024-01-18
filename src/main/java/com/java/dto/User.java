@@ -12,7 +12,7 @@ public class User {
 	
 	
 public User(ResultSet rt) throws SQLException {
-		
+	  	
 		this.uid = rt.getInt(1);
 		this.uname = rt.getString(2);
 		this.ucon = rt.getLong(3);
