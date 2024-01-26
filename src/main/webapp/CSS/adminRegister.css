@@ -4,6 +4,10 @@ body{
 	height: 100vh;
 }
 #main_content{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
     height: 100vh;
     background-image: url("https://webneel.com/daily/sites/default/files/images/daily/08-2018/1-nature-photography-spring-season-mumtazshamsee.jpg");
     background-size: cover;
@@ -11,12 +15,8 @@ body{
 
 #container {
     margin: 0px;
-    position: fixed;
     width: 400px;
     height: 500px; 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     border-radius: 30px;
     background-color: rgba(255, 255, 255, 0.3);
 }

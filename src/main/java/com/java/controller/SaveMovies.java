@@ -3,12 +3,14 @@ package com.java.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import com.java.dao.MovieDAO;
 import com.java.dto.Movie;
@@ -45,10 +47,19 @@ public class SaveMovies extends HttpServlet {
 
 			
 			
-			int n=dao.savamovies(movie);
-			if (n>0) {
-				resp.sendRedirect("home.jsp");
-			} 
+			
+			HttpSession session=req.getSession();
+			String adminName=(String)session.getAttribute("name");
+			if (adminName !=null) {
+				dao.savamovies(movie);
+				RequestDispatcher rd=req.getRequestDispatcher("admin.jsp");
+				rd.include(req, resp);
+			}
+			else {
+				req.setAttribute("messgage", "Access Denied Login Required");
+				RequestDispatcher rd=req.getRequestDispatcher("alogin.jsp");
+				rd.include(req, resp);
+			}
 		} 
 		catch (ClassNotFoundException e)
 		{

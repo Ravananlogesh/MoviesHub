@@ -2,6 +2,7 @@ package com.java.dto;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class User {
 	private int uid;
@@ -9,8 +10,6 @@ public class User {
 	private long ucon;
 	private String umail;
 	private String upass;
-	
-	
 public User(ResultSet rt) throws SQLException {
 	  	
 		this.uid = rt.getInt(1);

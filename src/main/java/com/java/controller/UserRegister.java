@@ -50,9 +50,9 @@ public class UserRegister extends HttpServlet {
 			
 			e.printStackTrace();
 		} catch (SQLException e) {
-			
+			        
 			e.printStackTrace();
 		}
-		
+	                                            
 	}
 }

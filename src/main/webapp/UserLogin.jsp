@@ -21,14 +21,17 @@
 					name="user" type="email" placeholder="User Name"> <label
 					class="content" for="password">User Password</label> <i
 					class="fa-solid fa-lock"></i> <input class="input_content"
-					name="password" type="password" placeholder="Password"> <br>
+					name="password" type="password" placeholder="Password"> 
 				<a class="link" id="link1" href="UserSignup.jsp">SignUp</a> <input
-					id="adminLogin" value="Login" type="submit"> <span>Forget
+					id="adminLogin" value="Login" type="submit">
+					<br>
+					<br>
+					<span>Forget
 					Password ? <a
 					style="text-decoration: none; color: rgb(43, 40, 240); font-weight: bold;"
 					href="#">Click Here</a>
 				</span>
-				<% String messages=(String) request.getAttribute("messages"); %>
+				<% String messages=(String)request.getAttribute("messages"); %>
 				<% if(messages!=null){ %>
 				<p style="text-align:center; color:red;"><%=messages %></p>
 				<%} %>

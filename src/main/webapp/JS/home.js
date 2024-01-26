@@ -21,12 +21,9 @@
       function playVideo(frameId, overlayId, videoUrl) {
         var frame = document.getElementById(frameId);
         var overlay = document.getElementById(overlayId);
-        var autoplay='?autoplay=1';
+        
         if (frame && overlay) {
-            // Set the source of the iframe in the overlay
-            frame.src = videoUrl+autoplay;
-
-            // Show the overlay
+            frame.src = videoUrl
             overlay.style.display = 'block';
         }
     }
@@ -35,24 +32,8 @@
         var overlay = document.getElementById(overlayId);
 
         if (frame && overlay) {
-            // Reset the source of the iframe
             frame.src = '';
-
-            // Hide the overlay
             overlay.style.display = 'none';
         }
     }
-  /* function autoScroll() {
-	   var scrollcount  = 2;
-	   
-	   var scrollContainer = document.getElementById('scroll-container');
-	    if (scrollContainer) {
-        scrollContainer.scrollBy(0, scrollcount);
-        var interval=setInterval(autoScroll,50);
-        
-        setTimeout(function(){
-			clearInterval(interval);
-		},5000)//5second after top
-    }
-}
-*/
+ 

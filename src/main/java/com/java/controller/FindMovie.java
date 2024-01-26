@@ -10,6 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.java.dao.MovieDAO;
 import com.java.dto.Movie;
 
@@ -30,9 +32,19 @@ public class FindMovie extends HttpServlet {
          try {
         	 Movie m = dao.findId(id);
         	 if (m != null) {
-        	     req.setAttribute("movie", m);
-        	     RequestDispatcher d = req.getRequestDispatcher("edit.jsp");
-        	     d.forward(req, resp);
+        		HttpSession session=req.getSession();
+ 				String adminName=(String)session.getAttribute("name");
+ 				if (adminName !=null) {
+ 					 req.setAttribute("movie", m);
+ 	        	     RequestDispatcher d = req.getRequestDispatcher("edit.jsp");
+ 	        	     d.forward(req, resp);
+ 				}
+ 				else {
+ 					req.setAttribute("messgage", "Access Denied Login Required");
+ 					RequestDispatcher rd=req.getRequestDispatcher("alogin.jsp");
+ 					rd.include(req, resp);
+ 				}
+        	     
         	 }
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

@@ -5,6 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.java.dto.Movie;
 import com.java.dto.User;
 
 public class UserDAO {
@@ -52,7 +56,14 @@ public class UserDAO {
 		} 
 		return lastId;
 	}
-
+    public int saveCart(int uid,int movieid) throws SQLException, ClassNotFoundException {
+    	Connection conn = getConnection();
+		PreparedStatement pst = conn.prepareStatement("insert into cartmovie values(?,?)");
+		pst.setInt(1, uid);
+    	pst.setInt(2, movieid);
+        return pst.executeUpdate();    	
+    }
+	
 
 	}
 

@@ -9,6 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.java.dao.UserDAO;
 import com.java.dto.User;
 @WebServlet("/Userlogin")
@@ -29,6 +31,10 @@ public class UserLogin extends HttpServlet {
 			User user = dao.findByEmail(userEmail);
 			if (user != null) {
 				if (user.getUpass().equals(pass)) {
+					HttpSession session =req.getSession();
+					boolean login=true;
+					session.setAttribute("login", login);
+					session.setAttribute("userId", user.getUid());
 					resp.sendRedirect("index.jsp");
 				} else {
 					req.setAttribute("messages", "password is wrong");

@@ -10,22 +10,32 @@
 <meta charset="UTF-8">
 <title>MovieHub</title>
 <link rel="shortcut icon" href="images/logo.png">
-<link rel="stylesheet" href="CSS/	UserHome.css">
+<link rel="stylesheet" href="CSS/UserHome.css">
 <script src="JS/home.js"></script>
 <script src="https://kit.fontawesome.com/4080ed022e.js"
 	crossorigin="anonymous"></script>
 </head>
 <body>
 	<div id=nav-container>
-		<nav id=first-nav>
-			<a class="nav-link" href="#header">Home</a> <a class="nav-link"
-				href="#contact">Contact</a> <a class="nav-link" href="#about">About
-				Us</a>
-		</nav>
-		<nav id=last-nav>
-			<a id="user" class="nav-link1" href="UserLogin.jsp">User</a> <a
-				class="nav-link1" href="alogin.jsp">Admin</a>
-		</nav>
+	   <img id="head-logo" src="images/logo.png" height="40px" width="40px">
+		<div id=first-nav>
+			<a class="nav-link" href="#header">Home</a> 
+			<a class="nav-link" href="#contact">Contact</a> 
+			<a class="nav-link" href="#about">About Us</a>
+		</div>
+		<div id=last-nav>
+		   <%  Boolean login=(Boolean)session.getAttribute("login"); 
+		       if(login !=null && login){  
+		   %>
+			<a id="user" class="nav-link1" href="logout">LogOut</a> 
+			<a class="nav-link1" href="Cart.jsp"><i class="fa-solid fa-cart-shopping"></i></a>
+			<%}
+		       else{
+		       %>
+		       <a id="user" class="nav-link1" href="UserLogin.jsp">Login</a>
+		       <a  class="nav-link1" href="UserSignup.jsp">SignUp</a>
+		       <%} %>
+		</div>
 
 	</div>
 
@@ -102,6 +112,15 @@
 					</tr>
 
 				</table>
+				
+				<% int n=movie.get(i).getMid();
+				String cartCheck="cart"+n;
+				Boolean cart=(Boolean)session.getAttribute(cartCheck);
+				if(cart !=null && cart){ %>
+				<span class="colborder">Added</span>
+				<%} else { %>
+				<a class="colborder" href="addcart?id=<%=movie.get(i).getMid()%>">Add Cart</a>
+				<%} %>
 			</div>
 		</div>
 		<%
@@ -115,7 +134,8 @@
 
 
 	<footer id="footer">
-		<h2 id="footer-head">MovieHub</h2>
+		<h2 id="footer-head">MovieHub <a id="admin" class="nav-link1" href="alogin.jsp">Admin</a></h2>
+		
 		<div id="network">
 			<a class="foot-link" href="https://github.com/Ravananlogesh"><i
 				class="fa-brands fa-github"></i></a> <a class="foot-link"
@@ -155,7 +175,6 @@
 					<a class="foot-link" href="#">Terms of Use</a>
 				</p>
 			</div>
-
 		</div>
 		<br>
 		<div>

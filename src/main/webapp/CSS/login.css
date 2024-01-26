@@ -1,104 +1,104 @@
-body{
-	margin:0px;
+body {
+	margin: 0;
 	height: 100vh;
 }
-#main_content{
-    position: relative;
-    height: 100vh;
-    margin: 0px;
-    align-items: center;
-    background-image: url("https://webneel.com/daily/sites/default/files/images/daily/08-2018/1-nature-photography-spring-season-mumtazshamsee.jpg");
-    background-size: cover;
-}
-/* #video_content{
-    height: 850px;
-} */
-#container{
-    margin: 0px;
-    position: fixed;
-    width: 400px;
-    height: 450px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius: 30px;
-    background-color: rgba(255, 255, 255, 0.3); 
-}
-#heading{
-    text-align: center;
-    height: 50px;
-    color: #2C3F23;
-}
-i{
-    margin-left:20px ;
-    cursor: pointer;
-}
-.input_content{
-    line-height: 40px;
-    width: 300px;
-    border: none;
-    border-bottom: 1px solid black;
-    margin-left: 25px;
-    background-color: none;
-    background-color: transparent;
-    transition-duration: 2000ms;
-    color: rgb(2, 17, 31);
-    font-size: 15px;
-    transition: 0.2s;
-}
-.input_content:focus{
-   outline: none;
-   transform: scale(1.05);
-   font-weight: bold;
-}
-.input_content::placeholder{
-    color: black;
-}
-.content{
-    display: block;
-    line-height: 50px;
-    margin-left: 25px;
-    color: rgb(35,38,122);
-    font-weight: bold;
-}
-#link1{
-    padding: 10px;
-    border-radius:20px ;
-    line-height: 80px;
-    text-decoration: none;
-    position: relative;
-    color: rgb(35,38,122);
-    background-color: rgba(255, 255, 255, 0.2);
-    font-weight: bold;
-}
-#adminLogin {
-    padding: 10px;
-    border-radius: 20px;
-    line-height: 17px;
-    font-size: 16px;
-    text-decoration: none;
-    position: relative;
-    color: rgb(35,38,122);
-    background-color: rgba(255, 255, 255, 0.3);
-    font-weight: bold;
-    border: none;
-    font-size: 17px;
-    cursor: pointer;
+
+#main_content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+	align-items: center;
+	background-image: url("https://webneel.com/daily/sites/default/files/images/daily/08-2018/1-nature-photography-spring-season-mumtazshamsee.jpg");
+	background-size: cover;
 }
 
-#link1:hover {
-    background-color: lightgoldenrodyellow;
+#container {
+	margin: 0;
+	width: 400px;
+	height: 450px;
+	border-radius: 30px;
+	background-color: rgba(255, 255, 255, 0.3);
 }
-#link1{
-    left: 40px;
+
+#heading {
+	text-align: center;
+	height: 50px;
+	color: #2C3F23;
 }
-#adminLogin{
-    left:160px;
+
+i {
+	margin-left: 20px;
+	cursor: pointer;
 }
+
+.input_content {
+	line-height: 40px;
+	width: 300px;
+	border: none;
+	border-bottom: 1px solid black;
+	margin-left: 25px;
+	background-color: transparent;
+	transition-duration: 300ms;
+	color: rgb(2, 17, 31);
+	font-size: 15px;
+	margin-bottom: 40px;
+}
+
+.input_content:focus {
+	outline: none;
+	transform: scale(1.05);
+	font-weight: bold;
+}
+
+.input_content::placeholder {
+	color: black;
+}
+
+.content {
+	line-height: 40px;
+	display: block;
+	margin-left: 25px;
+	color: rgb(35, 38, 122);
+	font-weight: bold;
+}
+
+#link1,
+#adminLogin {
+	padding: 10px;
+	border-radius: 20px;
+	line-height: 17px;
+	font-size: 16px;
+	text-decoration: none;
+	position: relative;
+	color: rgb(35, 38, 122);
+	background-color: rgba(255, 255, 255, 0.3);
+	font-weight: bold;
+	border: none;
+	font-size: 17px;
+	cursor: pointer;
+}
+
+#link1:hover,
 #adminLogin:hover {
-    background-color: lightgoldenrodyellow;
+	background-color: lightgoldenrodyellow;
 }
-span{
-    display: block;
-    margin-left: 30px;
+
+#link1 {
+	left: 40px;
+}
+
+#adminLogin {
+	left: 160px;
+}
+
+span {
+	display: block;
+	margin-left: 30px;
+}
+
+input:-webkit-autofill {
+  background-color: rgba(255, 255, 255, 0.3);
 }

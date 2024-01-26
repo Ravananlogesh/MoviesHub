@@ -62,7 +62,7 @@ body {
 
 	<header id="header">
 		<div id="add-container">
-			<a id="add-movie" href="addmovie.jsp"> <img id="add-link-image"
+			<a id="add-movie" href="addmovie"> <img id="add-link-image"
 				src="images/add.png" height="100px" width="100px">
 			</a>
 		</div>
@@ -111,10 +111,7 @@ body {
 		<%
 		}
 		}
-		%>
-
-
-
+		%>\
 	</header>
 
 	<br>
